@@ -9,7 +9,6 @@ Docs: https://docs.openclaw.ai
 ### Fixes
 
 - Telegram: restore draft streaming partials. (#5543) Thanks @obviyus.
-- fix(lobster): block arbitrary exec via lobsterPath/cwd injection (GHSA-4mhr-g7xj-cg8j). (#5335) Thanks @vignesh07.
 
 ## 2026.1.30
 
@@ -123,7 +122,6 @@ Docs: https://docs.openclaw.ai
 - Mentions: honor mentionPatterns even when explicit mentions are present. (#3303) Thanks @HirokiKobayashi-R.
 - Discord: restore username directory lookup in target resolution. (#3131) Thanks @bonald.
 - Agents: align MiniMax base URL test expectation with default provider config. (#3131) Thanks @bonald.
-- Agents: respect configured context window cap for compaction safeguard. (#6187) Thanks @iamEvanYT.
 - Agents: prevent retries on oversized image errors and surface size limits. (#2871) Thanks @Suksham-sharma.
 - Agents: inherit provider baseUrl/api for inline models. (#2740) Thanks @lploc94.
 - Memory Search: keep auto provider model defaults and only include remote when configured. (#2576) Thanks @papago2355.
