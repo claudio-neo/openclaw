@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-import { createServer } from "node:http";
-import type { AddressInfo } from "node:net";
-import type { Duplex } from "node:stream";
-
-=======
 import type { IncomingMessage } from "node:http";
 import type { AddressInfo } from "node:net";
 import type { Duplex } from "node:stream";
 import { randomBytes } from "node:crypto";
 import { createServer } from "node:http";
->>>>>>> a1e89afcc (fix: secure chrome extension relay cdp)
 import WebSocket, { WebSocketServer } from "ws";
-
 import { rawDataToString } from "../infra/ws.js";
 
 type CdpCommand = {
