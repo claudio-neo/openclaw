@@ -195,7 +195,13 @@ export default function compactionSafeguardExtension(api: ExtensionAPI): void {
     }
 
     try {
+<<<<<<< HEAD
       const contextWindowTokens = resolveContextWindowTokens(model);
+=======
+      const runtime = getCompactionSafeguardRuntime(ctx.sessionManager);
+      const modelContextWindow = resolveContextWindowTokens(model);
+      const contextWindowTokens = runtime?.contextWindowTokens ?? modelContextWindow;
+>>>>>>> 0992c5a80 (fix: cap context window resolution (#6187) (thanks @iamEvanYT))
       const turnPrefixMessages = preparation.turnPrefixMessages ?? [];
       let messagesToSummarize = preparation.messagesToSummarize;
 
