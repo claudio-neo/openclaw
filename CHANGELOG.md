@@ -2,6 +2,13 @@
 
 Docs: https://docs.openclaw.ai
 
+## 2026.2.2
+
+### Fixes
+
+- Telegram: add download timeouts for file fetches. (#6914) Thanks @hclsys.
+- Telegram: enforce thread specs for DM vs forum sends. (#6833) Thanks @obviyus.
+
 ## 2026.1.31
 
 ### Changes
@@ -17,6 +24,8 @@ Docs: https://docs.openclaw.ai
 ### Fixes
 
 - Auto-reply: avoid referencing workspace files in /new greeting prompt. (#5706) Thanks @bravostation.
+- Tools: treat `"*"` tool allowlist entries as valid to avoid spurious unknown-entry warnings.
+- Slack: harden media fetch limits and Slack file URL validation. (#6639) Thanks @davidiach.
 - Process: resolve Windows `spawn()` failures for npm-family CLIs by appending `.cmd` when needed. (#5815) Thanks @thejhinvirtuoso.
 - Discord: resolve PluralKit proxied senders for allowlists and labels. (#5838) Thanks @thewilloftheshadow.
 - Agents: ensure OpenRouter attribution headers apply in the embedded runner.
@@ -29,7 +38,9 @@ Docs: https://docs.openclaw.ai
 - Browser: secure Chrome extension relay CDP sessions.
 - Docker: use container port for gateway command instead of host port. (#5110) Thanks @mise42.
 - fix(lobster): block arbitrary exec via lobsterPath/cwd injection (GHSA-4mhr-g7xj-cg8j). (#5335) Thanks @vignesh07.
+- Security: block LD*/DYLD* env overrides for host exec. (#4896) Thanks @HassanFleyah.
 - Security: harden web tool content wrapping + file parsing safeguards. (#4058) Thanks @VACInc.
+- Security: enforce Twitch `allowFrom` allowlist gating (deny non-allowlisted senders). Thanks @MegaManSec.
 
 ## 2026.1.30
 
