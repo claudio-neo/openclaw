@@ -5,7 +5,7 @@ import {
   closeDispatcher,
   createPinnedDispatcher,
   resolvePinnedHostname,
-  SsrfBlockedError,
+  SsrFBlockedError,
 } from "../../infra/net/ssrf.js";
 import type { Dispatcher } from "undici";
 import { wrapExternalContent, wrapWebContent } from "../../security/external-content.js";
