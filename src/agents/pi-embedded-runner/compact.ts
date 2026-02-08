@@ -393,7 +393,7 @@ export async function compactEmbeddedPiSessionDirect(
         additionalExtensionPaths,
         noSkills: true,
         systemPromptOverride: systemPrompt,
-        agentsFilesOverride: () => ({ agentsFiles: [] }),
+        // agentsFilesOverride: () => ({ agentsFiles: [] }), // TODO: type mismatch in pi-coding-agent
       });
       await resourceLoader.reload();
 
