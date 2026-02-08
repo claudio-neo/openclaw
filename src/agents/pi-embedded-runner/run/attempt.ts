@@ -464,7 +464,7 @@ export async function runEmbeddedAttempt(
         settingsManager,
         additionalExtensionPaths,
         noSkills: true,
-        systemPromptOverride: systemPrompt,
+        systemPromptOverride: () => systemPrompt,
         // agentsFilesOverride: () => ({ agentsFiles: [] }), // TODO: type mismatch in pi-coding-agent
       });
       await resourceLoader.reload();
