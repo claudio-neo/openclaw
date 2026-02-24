@@ -4,6 +4,8 @@ Docs: https://docs.openclaw.ai
 
 ## 2026.2.2
 
+- Memory/FTS: add Spanish and Portuguese stop-word filtering for query expansion in FTS-only search mode, improving conversational recall for both languages.
+
 ### Fixes
 
 - Telegram: add download timeouts for file fetches. (#6914) Thanks @hclsys.
