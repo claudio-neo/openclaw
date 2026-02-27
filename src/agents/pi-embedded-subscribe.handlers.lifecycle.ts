@@ -47,6 +47,20 @@ export function handleAutoCompactionEnd(
     ctx.log.debug(`embedded run compaction retry: runId=${ctx.params.runId}`);
   } else {
     ctx.maybeResolveCompactionWait();
+    // Reset stale assistant usage to zeroed snapshot post-compaction.
+    // Prevents token accounting failures when usage field is missing (port of upstream 7e0b3f16e).
+    for (const msg of (ctx.params.session as { messages?: unknown[] } | undefined)?.messages ??
+      []) {
+      if ((msg as { role?: string }).role === "assistant") {
+        (msg as { usage?: unknown }).usage = {
+          input: 0,
+          output: 0,
+          cacheRead: 0,
+          cacheWrite: 0,
+          total: 0,
+        };
+      }
+    }
   }
   emitAgentEvent({
     runId: ctx.params.runId,
