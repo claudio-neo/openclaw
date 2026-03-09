@@ -34,8 +34,17 @@ export function buildFtsQuery(raw: string): string | null {
 }
 
 export function bm25RankToScore(rank: number): number {
-  const normalized = Number.isFinite(rank) ? Math.max(0, rank) : 999;
-  return 1 / (1 + normalized);
+  // FTS5 bm25() returns negative values: more negative = more relevant.
+  // Map to [0,1] where 1 = perfectly relevant.
+  // Formula: relevance/(1+relevance) ensures score increases with |rank|.
+  if (!Number.isFinite(rank)) {
+    return 1 / (1 + 999);
+  }
+  if (rank >= 0) {
+    return 0;
+  }
+  const relevance = -rank; // positive, larger = more relevant
+  return relevance / (1 + relevance);
 }
 
 export function mergeHybridResults(params: {
